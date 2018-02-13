@@ -23,7 +23,7 @@ defmodule ParkingPrototypeWeb.Router do
    scope "/api", ParkingPrototypeWeb do
      pipe_through :api
 
-     resources "/areas", AreaController
+     resources "/areas", AreaController, except: [:new, :edit]
 
      patch "/areas/:id/spots/:spot_id", AreaController, :update_spot
      post "/areas/:id/spots", AreaController, :add_spot

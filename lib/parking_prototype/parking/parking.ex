@@ -24,7 +24,7 @@ defmodule ParkingPrototype.Parking do
 
   defp get_available_spots(area_id) do
     area = get_area!(area_id)
-    Enum.count(area.parking_spots)
+    Enum.count(area.parking_spots, fn(spot) -> spot.available == true end)
   end
 
   @doc """
